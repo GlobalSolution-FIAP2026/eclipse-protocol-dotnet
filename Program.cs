@@ -1,8 +1,17 @@
 using System.Reflection;
 using GlobalSolution.Data;
+using GlobalSolution.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<LocalizacaoService>();
+builder.Services.AddScoped<PropriedadeService>();
+builder.Services.AddScoped<PlantacaoService>();
+builder.Services.AddScoped<SensorService>();
+builder.Services.AddScoped<LeituraService>();
+builder.Services.AddScoped<AlertaService>();
 
 builder.Services.AddControllers();
 
