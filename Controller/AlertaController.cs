@@ -1,6 +1,6 @@
 using GlobalSolution.Dto;
 using GlobalSolution.Models;
-using GlobalSolution.Services;
+using GlobalSolution.Service;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 

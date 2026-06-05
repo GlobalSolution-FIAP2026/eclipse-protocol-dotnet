@@ -2,7 +2,7 @@
 using GlobalSolution.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GlobalSolution.Services;
+namespace GlobalSolution.Service;
 
 public class SensorService
 {

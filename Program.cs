@@ -1,6 +1,6 @@
 using System.Reflection;
 using GlobalSolution.Data;
-using GlobalSolution.Services;
+using GlobalSolution.Service;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
