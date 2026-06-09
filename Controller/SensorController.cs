@@ -20,9 +20,11 @@ public class SensorController : ControllerBase
     [HttpGet]
     [SwaggerOperation(Summary = "Listar todos os sensores")]
     [ProducesResponseType(typeof(IEnumerable<SensorResponseDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetAll()
     {
         var lista = await _service.ListarTodosAsync();
+        if (!lista.Any()) return NoContent();
         return Ok(lista.Select(ToResponse));
     }
 

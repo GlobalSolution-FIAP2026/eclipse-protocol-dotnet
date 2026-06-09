@@ -59,9 +59,9 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title       = "Eclipse Protocol API",
+        Title       = "Global Solution FIAP 2026",
         Version     = "v1",
-        Description = "API de monitoramento inteligente de plantações – Global Solution FIAP 2025",
+        Description = "Eclipse Protocol — API de monitoramento inteligente de plantações",
         Contact     = new OpenApiContact { Name = "Equipe Eclipse Protocol" }
     });
 
@@ -93,15 +93,12 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eclipse Protocol API v1");
-        c.RoutePrefix = string.Empty; // Swagger na raiz "/"
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Global Solution FIAP 2026 v1");
+    c.RoutePrefix = string.Empty; // Swagger na raiz "/"
+});
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

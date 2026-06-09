@@ -7,6 +7,7 @@ namespace GlobalSolution.Models;
 public class Localizacao
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ID_LOCALIZACAO")]
     public long IdLocalizacao { get; set; }
 

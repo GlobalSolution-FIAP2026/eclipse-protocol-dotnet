@@ -32,7 +32,7 @@ public class SensorService
     public async Task<Sensor> CriarAsync(Sensor sensor)
     {
         var plantacaoExiste = await _context.Plantacoes
-            .CountAsync(p => p.IdPlantacao == sensor.IdPlantacao) > 0;
+            .AnyAsync(p => p.IdPlantacao == sensor.IdPlantacao);
 
         if (!plantacaoExiste)
             throw new InvalidOperationException("Plantação informada não existe.");
@@ -54,7 +54,7 @@ public class SensorService
             return null;
 
         var plantacaoExiste = await _context.Plantacoes
-            .CountAsync(p => p.IdPlantacao == sensorAtualizado.IdPlantacao) > 0;
+            .AnyAsync(p => p.IdPlantacao == sensorAtualizado.IdPlantacao);
 
         if (!plantacaoExiste)
             throw new InvalidOperationException("Plantação informada não existe.");

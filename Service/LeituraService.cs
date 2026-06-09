@@ -32,7 +32,7 @@ public class LeituraService
     public async Task<Leitura> CriarAsync(Leitura leitura)
     {
         var sensorExiste = await _context.Sensores
-            .CountAsync(s => s.IdSensor == leitura.IdSensor) > 0;
+            .AnyAsync(s => s.IdSensor == leitura.IdSensor);
 
         if (!sensorExiste)
             throw new InvalidOperationException("Sensor informado não existe.");
@@ -53,7 +53,7 @@ public class LeituraService
             return null;
 
         var sensorExiste = await _context.Sensores
-            .CountAsync(s => s.IdSensor == leituraAtualizada.IdSensor) > 0;
+            .AnyAsync(s => s.IdSensor == leituraAtualizada.IdSensor);
 
         if (!sensorExiste)
             throw new InvalidOperationException("Sensor informado não existe.");

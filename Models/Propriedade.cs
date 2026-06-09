@@ -7,6 +7,7 @@ namespace GlobalSolution.Models;
 public class Propriedade
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ID_PROPRIEDADE")]
     public long IdPropriedade { get; set; }
 

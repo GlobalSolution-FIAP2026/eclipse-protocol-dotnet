@@ -7,6 +7,7 @@ namespace GlobalSolution.Models;
 public class Sensor
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ID_SENSOR")]
     public long IdSensor { get; set; }
 

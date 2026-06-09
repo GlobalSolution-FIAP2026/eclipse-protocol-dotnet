@@ -7,6 +7,7 @@ namespace GlobalSolution.Models;
 public class Alerta
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ID_ALERTA")]
     public long IdAlerta { get; set; }
 

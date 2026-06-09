@@ -7,6 +7,7 @@ namespace GlobalSolution.Models;
 public class Usuario
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ID_USUARIO")]
     public long IdUsuario { get; set; }
 

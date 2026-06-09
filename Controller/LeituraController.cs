@@ -20,9 +20,11 @@ public class LeituraController : ControllerBase
     [HttpGet]
     [SwaggerOperation(Summary = "Listar todas as leituras")]
     [ProducesResponseType(typeof(IEnumerable<LeituraResponseDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetAll()
     {
         var lista = await _service.ListarTodosAsync();
+        if (!lista.Any()) return NoContent();
         return Ok(lista.Select(ToResponse));
     }
 

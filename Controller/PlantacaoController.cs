@@ -20,9 +20,11 @@ public class PlantacaoController : ControllerBase
     [HttpGet]
     [SwaggerOperation(Summary = "Listar todas as plantações")]
     [ProducesResponseType(typeof(IEnumerable<PlantacaoResponseDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetAll()
     {
         var lista = await _service.ListarTodosAsync();
+        if (!lista.Any()) return NoContent();
         return Ok(lista.Select(ToResponse));
     }
 
