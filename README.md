@@ -1,6 +1,6 @@
 # 🌱 Eclipse Protocol — API de Monitoramento Inteligente de Plantações
 
-> **Global Solution 2025 — FIAP**  
+> **Global Solution 2026 — FIAP**  
 > API REST desenvolvida em **ASP.NET Core 8** com persistência em **Oracle** via Entity Framework Core 8 e autenticação **JWT**.
 
 ---
@@ -148,8 +148,8 @@ dotnet run
 ```
 
 A API estará disponível em:
-- **HTTP:** `http://localhost:5285`
-- **Swagger UI:** `http://localhost:5285` (raiz)
+- **HTTP:** `http://localhost:5041`
+- **Swagger UI:** `http://localhost:5041` (raiz)
 
 ---
 
@@ -249,12 +249,12 @@ dotnet ef migrations remove
 
 ## Exemplos de Testes (curl)
 
-> Base URL: `http://localhost:5285`
+> Base URL: `http://localhost:5041`
 
 ### 1. Criar Usuário
 
 ```bash
-curl -X POST http://localhost:5285/api/usuario \
+curl -X POST http://localhost:5041/api/usuario \
   -H "Content-Type: application/json" \
   -d '{
     "nome": "João da Silva",
@@ -280,7 +280,7 @@ curl -X POST http://localhost:5285/api/usuario \
 ### 2. Criar Localização
 
 ```bash
-curl -X POST http://localhost:5285/api/localizacao \
+curl -X POST http://localhost:5041/api/localizacao \
   -H "Content-Type: application/json" \
   -d '{
     "cidade": "Ribeirão Preto",
@@ -297,7 +297,7 @@ curl -X POST http://localhost:5285/api/localizacao \
 ### 3. Criar Propriedade
 
 ```bash
-curl -X POST http://localhost:5285/api/propriedade \
+curl -X POST http://localhost:5041/api/propriedade \
   -H "Content-Type: application/json" \
   -d '{
     "nome": "Fazenda Santa Clara",
@@ -313,7 +313,7 @@ curl -X POST http://localhost:5285/api/propriedade \
 ### 4. Criar Plantação
 
 ```bash
-curl -X POST http://localhost:5285/api/plantacao \
+curl -X POST http://localhost:5041/api/plantacao \
   -H "Content-Type: application/json" \
   -d '{
     "nome": "Talhão A1",
@@ -329,7 +329,7 @@ curl -X POST http://localhost:5285/api/plantacao \
 ### 5. Criar Sensor
 
 ```bash
-curl -X POST http://localhost:5285/api/sensor \
+curl -X POST http://localhost:5041/api/sensor \
   -H "Content-Type: application/json" \
   -d '{
     "nome": "Sensor Temp-01",
@@ -344,7 +344,7 @@ curl -X POST http://localhost:5285/api/sensor \
 ### 6. Registrar Leitura
 
 ```bash
-curl -X POST http://localhost:5285/api/leitura \
+curl -X POST http://localhost:5041/api/leitura \
   -H "Content-Type: application/json" \
   -d '{
     "temperatura": 38.5,
@@ -373,7 +373,7 @@ curl -X POST http://localhost:5285/api/leitura \
 ### 7. Criar Alerta
 
 ```bash
-curl -X POST http://localhost:5285/api/alerta \
+curl -X POST http://localhost:5041/api/alerta \
   -H "Content-Type: application/json" \
   -d '{
     "tipoAlerta": "TEMPERATURA_ALTA",
@@ -390,7 +390,7 @@ curl -X POST http://localhost:5285/api/alerta \
 ### 8. Listar todos os Alertas
 
 ```bash
-curl http://localhost:5285/api/alerta
+curl http://localhost:5041/api/alerta
 ```
 
 ---
@@ -398,7 +398,7 @@ curl http://localhost:5285/api/alerta
 ### 9. Atualizar status do Alerta (resolver)
 
 ```bash
-curl -X PUT http://localhost:5285/api/alerta/1 \
+curl -X PUT http://localhost:5041/api/alerta/1 \
   -H "Content-Type: application/json" \
   -d '{
     "tipoAlerta": "TEMPERATURA_ALTA",
@@ -415,7 +415,7 @@ curl -X PUT http://localhost:5285/api/alerta/1 \
 ### 10. Deletar Usuário
 
 ```bash
-curl -X DELETE http://localhost:5285/api/usuario/1
+curl -X DELETE http://localhost:5041/api/usuario/1
 ```
 
 **Resposta esperada:** `204 No Content`  
@@ -425,7 +425,7 @@ curl -X DELETE http://localhost:5285/api/usuario/1
 
 ## Exemplos de Testes (Swagger)
 
-1. Acesse `http://localhost:5285` no navegador
+1. Acesse `http://localhost:5041` no navegador
 2. A interface Swagger UI exibe todos os endpoints documentados
 3. Clique em qualquer endpoint → **"Try it out"** → preencha o body → **"Execute"**
 4. O Swagger exibe o `curl` equivalente, o corpo da requisição e a resposta
@@ -455,7 +455,7 @@ A API possui suporte a **JWT Bearer Token**. O pacote `Microsoft.AspNetCore.Auth
 **Configuração no `appsettings.json`:**
 ```json
 "Jwt": {
-  "Key": "GlobalSolutionEclipseProtocolSecretKey2025!@#",
+  "Key": "GlobalSolutionEclipseProtocolSecretKey2026!@#",
   "Issuer": "GlobalSolution.API",
   "Audience": "GlobalSolution.Client",
   "ExpiresInHours": 8
@@ -485,4 +485,4 @@ Para usar o Swagger com token:
 
 ## 📄 Licença
 
-Projeto acadêmico — FIAP Global Solution 2025. Todos os direitos reservados.
+Projeto acadêmico — FIAP Global Solution 2026. Todos os direitos reservados.
