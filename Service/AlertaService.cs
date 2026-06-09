@@ -34,13 +34,13 @@ public class AlertaService
     public async Task<Alerta> CriarAsync(Alerta alerta)
     {
         var leituraExiste = await _context.Leituras
-            .AnyAsync(l => l.IdLeitura == alerta.IdLeitura);
+            .CountAsync(l => l.IdLeitura == alerta.IdLeitura) > 0;
 
         if (!leituraExiste)
             throw new InvalidOperationException("Leitura informada não existe.");
 
         var plantacaoExiste = await _context.Plantacoes
-            .AnyAsync(p => p.IdPlantacao == alerta.IdPlantacao);
+            .CountAsync(p => p.IdPlantacao == alerta.IdPlantacao) > 0;
 
         if (!plantacaoExiste)
             throw new InvalidOperationException("Plantação informada não existe.");
@@ -62,13 +62,13 @@ public class AlertaService
             return null;
 
         var leituraExiste = await _context.Leituras
-            .AnyAsync(l => l.IdLeitura == alertaAtualizado.IdLeitura);
+            .CountAsync(l => l.IdLeitura == alertaAtualizado.IdLeitura) > 0;
 
         if (!leituraExiste)
             throw new InvalidOperationException("Leitura informada não existe.");
 
         var plantacaoExiste = await _context.Plantacoes
-            .AnyAsync(p => p.IdPlantacao == alertaAtualizado.IdPlantacao);
+            .CountAsync(p => p.IdPlantacao == alertaAtualizado.IdPlantacao) > 0;
 
         if (!plantacaoExiste)
             throw new InvalidOperationException("Plantação informada não existe.");

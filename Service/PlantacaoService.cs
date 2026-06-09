@@ -32,7 +32,7 @@ public class PlantacaoService
     public async Task<Plantacao> CriarAsync(Plantacao plantacao)
     {
         var propriedadeExiste = await _context.Propriedades
-            .AnyAsync(p => p.IdPropriedade == plantacao.IdPropriedade);
+            .CountAsync(p => p.IdPropriedade == plantacao.IdPropriedade) > 0;
 
         if (!propriedadeExiste)
             throw new InvalidOperationException("Propriedade informada não existe.");
@@ -51,7 +51,7 @@ public class PlantacaoService
             return null;
 
         var propriedadeExiste = await _context.Propriedades
-            .AnyAsync(p => p.IdPropriedade == plantacaoAtualizada.IdPropriedade);
+            .CountAsync(p => p.IdPropriedade == plantacaoAtualizada.IdPropriedade) > 0;
 
         if (!propriedadeExiste)
             throw new InvalidOperationException("Propriedade informada não existe.");

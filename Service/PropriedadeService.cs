@@ -34,13 +34,13 @@ public class PropriedadeService
     public async Task<Propriedade> CriarAsync(Propriedade propriedade)
     {
         var usuarioExiste = await _context.Usuarios
-            .AnyAsync(u => u.IdUsuario == propriedade.IdUsuario);
+            .CountAsync(u => u.IdUsuario == propriedade.IdUsuario) > 0;
 
         if (!usuarioExiste)
             throw new InvalidOperationException("Usuário informado não existe.");
 
         var localizacaoExiste = await _context.Localizacoes
-            .AnyAsync(l => l.IdLocalizacao == propriedade.IdLocalizacao);
+            .CountAsync(l => l.IdLocalizacao == propriedade.IdLocalizacao) > 0;
 
         if (!localizacaoExiste)
             throw new InvalidOperationException("Localização informada não existe.");
@@ -59,13 +59,13 @@ public class PropriedadeService
             return null;
 
         var usuarioExiste = await _context.Usuarios
-            .AnyAsync(u => u.IdUsuario == propriedadeAtualizada.IdUsuario);
+            .CountAsync(u => u.IdUsuario == propriedadeAtualizada.IdUsuario) > 0;
 
         if (!usuarioExiste)
             throw new InvalidOperationException("Usuário informado não existe.");
 
         var localizacaoExiste = await _context.Localizacoes
-            .AnyAsync(l => l.IdLocalizacao == propriedadeAtualizada.IdLocalizacao);
+            .CountAsync(l => l.IdLocalizacao == propriedadeAtualizada.IdLocalizacao) > 0;
 
         if (!localizacaoExiste)
             throw new InvalidOperationException("Localização informada não existe.");

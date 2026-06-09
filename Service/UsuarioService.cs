@@ -30,7 +30,7 @@ public class UsuarioService
     public async Task<Usuario> CriarAsync(Usuario usuario)
     {
         var emailExiste = await _context.Usuarios
-            .AnyAsync(u => u.Email == usuario.Email);
+            .CountAsync(u => u.Email == usuario.Email) > 0;
 
         if (emailExiste)
             throw new InvalidOperationException("Já existe um usuário cadastrado com este e-mail.");
@@ -52,7 +52,7 @@ public class UsuarioService
             return null;
 
         var emailExiste = await _context.Usuarios
-            .AnyAsync(u => u.Email == usuarioAtualizado.Email && u.IdUsuario != id);
+            .CountAsync(u => u.Email == usuarioAtualizado.Email && u.IdUsuario != id) > 0;
 
         if (emailExiste)
             throw new InvalidOperationException("Já existe outro usuário cadastrado com este e-mail.");
