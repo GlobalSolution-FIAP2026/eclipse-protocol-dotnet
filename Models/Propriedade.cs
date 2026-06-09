@@ -16,7 +16,7 @@ public class Propriedade
     public string Nome { get; set; } = string.Empty;
 
     [Range(0.1, 999999)]
-    [Column("NR_AREA_TOTAL")]
+    [Column("NR_AREA_TOTAL", TypeName = "FLOAT")]
     public double AreaTotal { get; set; }
 
     [MaxLength(80)]

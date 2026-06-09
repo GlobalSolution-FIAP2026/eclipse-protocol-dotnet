@@ -25,10 +25,10 @@ public class Localizacao
     [Column("NM_PAIS")]
     public string Pais { get; set; } = "Brasil";
 
-    [Column("NR_LATITUDE")]
+    [Column("NR_LATITUDE", TypeName = "FLOAT")]
     public double? Latitude { get; set; }
 
-    [Column("NR_LONGITUDE")]
+    [Column("NR_LONGITUDE", TypeName = "FLOAT")]
     public double? Longitude { get; set; }
 
     [MaxLength(20)]

@@ -26,7 +26,7 @@ public class Usuario
     [Column("DS_SENHA")]
     public string Senha { get; set; } = string.Empty;
 
-    [Column("ST_ATIVO")]
+    [Column("ST_ATIVO", TypeName = "NUMBER(1)")]
     public bool Ativo { get; set; } = true;
 
     [Column("DT_CRIACAO")]

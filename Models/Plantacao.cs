@@ -21,7 +21,7 @@ public class Plantacao
     public string Cultura { get; set; } = string.Empty;
 
     [Range(0.1, 999999)]
-    [Column("NR_AREA_HECTARES")]
+    [Column("NR_AREA_HECTARES", TypeName = "FLOAT")]
     public double AreaHectares { get; set; }
 
     [Required]

@@ -20,7 +20,7 @@ public class Sensor
     [Column("TP_SENSOR")]
     public string Tipo { get; set; } = string.Empty;
 
-    [Column("ST_ATIVO")]
+    [Column("ST_ATIVO", TypeName = "NUMBER(1)")]
     public bool Ativo { get; set; } = true;
 
     [Column("DT_INSTALACAO")]

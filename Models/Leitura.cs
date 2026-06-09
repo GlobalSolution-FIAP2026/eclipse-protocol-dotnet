@@ -11,19 +11,19 @@ public class Leitura
     public long IdLeitura { get; set; }
 
     [Range(-50, 80)]
-    [Column("NR_TEMPERATURA")]
+    [Column("NR_TEMPERATURA", TypeName = "FLOAT")]
     public double? Temperatura { get; set; }
 
     [Range(0, 100)]
-    [Column("NR_UMIDADE")]
+    [Column("NR_UMIDADE", TypeName = "FLOAT")]
     public double? Umidade { get; set; }
 
     [Range(0, 1000)]
-    [Column("NR_PRECIPITACAO")]
+    [Column("NR_PRECIPITACAO", TypeName = "FLOAT")]
     public double? Precipitacao { get; set; }
 
     [Range(-1, 1)]
-    [Column("NR_NDVI")]
+    [Column("NR_NDVI", TypeName = "FLOAT")]
     public double? Ndvi { get; set; }
 
     [Column("DT_LEITURA")]
