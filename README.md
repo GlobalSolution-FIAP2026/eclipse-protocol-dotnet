@@ -5,6 +5,15 @@
 
 ---
 
+## 🎥 Vídeos
+
+| # | Descrição | Link |
+|---|-----------|------|
+| 1 | Demonstração do projeto e testes dos endpoints | [▶ Assistir no YouTube](https://youtu.be/97qhjy2_QZA) |
+| 2 | Pitch do projeto | [▶ Assistir no YouTube](https://youtu.be/_5cH-Xk2mmM) |
+
+---
+
 ## 📑 Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
