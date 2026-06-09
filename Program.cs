@@ -21,9 +21,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseOracle(
-        builder.Configuration.GetConnectionString("OracleConnection")
-    );
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"))
+           .AddInterceptors(new OracleBoolFixInterceptor());
 });
 
 

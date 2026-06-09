@@ -1,5 +1,7 @@
 ﻿using GlobalSolution.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.Data.Common;
 
 namespace GlobalSolution.Data;
 
@@ -66,5 +68,38 @@ public class AppDbContext : DbContext
             .WithOne(a => a.Leitura)
             .HasForeignKey(a => a.IdLeitura)
             .OnDelete(DeleteBehavior.Restrict);
+    }
+}
+
+/// <summary>
+/// Corrige o bug do Oracle EF Core que gera "THEN True / ELSE False" no SQL,
+/// substituindo pelos literais numéricos 1/0 compatíveis com Oracle.
+/// Necessário para que AnyAsync() funcione corretamente com Oracle.
+/// </summary>
+internal sealed class OracleBoolFixInterceptor : DbCommandInterceptor
+{
+    public override InterceptionResult<DbDataReader> ReaderExecuting(
+        DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result)
+    {
+        Fix(command);
+        return result;
+    }
+
+    public override ValueTask<InterceptionResult<DbDataReader>> ReaderExecutingAsync(
+        DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result,
+        CancellationToken cancellationToken = default)
+    {
+        Fix(command);
+        return ValueTask.FromResult(result);
+    }
+
+    private static void Fix(DbCommand cmd)
+    {
+        if (cmd.CommandText.Contains("True") || cmd.CommandText.Contains("False"))
+            cmd.CommandText = cmd.CommandText
+                .Replace("THEN True",  "THEN 1")
+                .Replace("ELSE False", "ELSE 0")
+                .Replace("THEN False", "THEN 0")
+                .Replace("ELSE True",  "ELSE 1");
     }
 }
