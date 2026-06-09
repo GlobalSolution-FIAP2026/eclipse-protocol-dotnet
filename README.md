@@ -131,7 +131,7 @@ dotnet tool install --global dotnet-ef
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/<seu-usuario>/eclipse-protocol-dotnet.git
+git clone https://github.com/eclipse-protocol/eclipse-protocol-dotnet.git
 cd eclipse-protocol-dotnet/GlobalSolution
 ```
 
@@ -271,7 +271,7 @@ curl -X POST http://localhost:5041/api/usuario \
   "nome": "João da Silva",
   "email": "joao@email.com",
   "ativo": true,
-  "dataCriacao": "2025-06-08T10:00:00"
+  "dataCriacao": "2026-06-09T10:00:00"
 }
 ```
 
@@ -363,7 +363,7 @@ curl -X POST http://localhost:5041/api/leitura \
   "umidade": 25.0,
   "precipitacao": 0.0,
   "ndvi": 0.42,
-  "dataLeitura": "2025-06-08T10:05:00",
+  "dataLeitura": "2026-06-09T10:05:00",
   "idSensor": 1
 }
 ```
@@ -475,7 +475,7 @@ Para usar o Swagger com token:
 | Nome                    | RM       |
 |-------------------------|----------|
 | *Gustavo Gomes Martins* | 555999 |
-| *Pedro dos Anjos* | 561716 |
+| *Pedro dos Anjos* | 563832 |
 | *Matheus de Mattos Vecchi* | 561716 |
 | *Nicholas Albuquerque Buzo* | 561082 |
 | *Nicholas Camillo Canadas de Paula* | 561262 |
